@@ -9,7 +9,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         loadDrawerNavigation();
         loadToolbarItem();
+        loadHomeScreen();
 
 
 
@@ -95,6 +99,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+    // -----------------------Inflate home screen------------------------
+    private void loadHomeScreen(){
+        FrameLayout frameLayout = findViewById(R.id.frameLayout);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View homeView = inflater.inflate(R.layout.activity_home, frameLayout, false);
+
+
+        frameLayout.addView(homeView);
+
+    }
+
 
 
 
