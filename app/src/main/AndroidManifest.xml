@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BanglaStatusApp"
         tools:targetApi="34">
-
+        <activity
+            android:name=".PrivacyPolicy"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="false"
@@ -21,7 +27,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -35,10 +40,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
-
-
     </application>
 
 </manifest>

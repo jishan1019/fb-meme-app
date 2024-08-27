@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -67,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 }else if (item.getItemId() == R.id.moreApps){
 
                     drawerLayout.closeDrawer(GravityCompat.START);
-                }else if (item.getItemId() == R.id.privacyPolicy){
 
+                }else if (item.getItemId() == R.id.privacyPolicy){
+                    startActivity(new Intent(MainActivity.this, PrivacyPolicy.class));
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }
 
