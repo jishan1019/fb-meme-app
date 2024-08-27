@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
+    >
+
+   <group
+       android:id="@+id/group1">
+
+       <item
+           android:id="@+id/nav_home"
+           android:title="Home"
+           android:checkable="true"
+           android:icon="@drawable/ic_baseline_home_24"
+           />
+
+       <item
+           android:id="@+id/favourite"
+           android:title="Favourite"
+           android:checkable="true"
+           android:icon="@drawable/ic_baseline_favorite_24"
+           />
+
+       <item
+           android:id="@+id/rating"
+           android:title="Give Rating"
+           android:checkable="true"
+           android:icon="@drawable/ic_baseline_star_24"
+           />
+
+       <item
+           android:id="@+id/moreApps"
+           android:title="More Apps"
+           android:checkable="true"
+           android:icon="@drawable/ic_baseline_more_24"
+           />
+
+
+   </group>
+
+
+    <group
+        android:id="@+id/group2">
+
+        <item
+            android:id="@+id/privacyPolicy"
+            android:title="Privacy Policy"
+            android:checkable="true"
+            android:icon="@drawable/ic_baseline_security_24"
+            />
+
+    </group>
+
+
+
+</menu>

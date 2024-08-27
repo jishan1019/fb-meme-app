@@ -11,18 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BanglaStatusApp"
-        tools:targetApi="31">
+        tools:targetApi="34">
+
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="false"
-            android:label="@string/title_activity_splash"
             android:theme="@style/Theme.BanglaStatusApp.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +35,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+
+
+
     </application>
 
 </manifest>
