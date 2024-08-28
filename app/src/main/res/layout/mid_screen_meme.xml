@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="320dp"
+    android:layout_height="300dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="10dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     app:cardElevation="5dp"
     app:cardCornerRadius="10dp"
     >
@@ -11,7 +14,7 @@
     <!-- Img View -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="240dp"
         android:orientation="vertical">
 
         <ImageView
@@ -43,6 +46,7 @@
 
             <!-- 1ST BUTTON-->
             <LinearLayout
+                android:id="@+id/llTvLikeBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -71,6 +75,7 @@
 
             <!-- 2nd BUTTON-->
             <LinearLayout
+                android:id="@+id/llTvDownloadBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -94,11 +99,11 @@
                     android:text="Download"
                     />
 
-
             </LinearLayout>
 
             <!-- 3rd BUTTON-->
             <LinearLayout
+                android:id="@+id/llTvViewBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -127,6 +132,7 @@
 
             <!-- 4th BUTTON-->
             <LinearLayout
+                android:id="@+id/llTvShareBtn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -152,8 +158,6 @@
 
 
             </LinearLayout>
-
-
 
 
         </LinearLayout>

@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -41,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this, drawerLayout, materialToolbar,R.string.nav_close, R.string.nav_open);
         drawerLayout.addDrawerListener(toggle);
 
-
-
-
         loadDrawerNavigation();
         loadToolbarItem();
         loadHomeScreen();
@@ -69,10 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }else if (item.getItemId() == R.id.rating){
-
+                    ratingApps();
                     drawerLayout.closeDrawer(GravityCompat.START);
-                }else if (item.getItemId() == R.id.moreApps){
 
+                }else if (item.getItemId() == R.id.moreApps){
+                    moreApps();
                     drawerLayout.closeDrawer(GravityCompat.START);
 
                 }else if (item.getItemId() == R.id.privacyPolicy){
@@ -144,11 +143,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cvMoreAppBtn.setOnClickListener(v-> {
-
+            moreApps();
         });
 
         cvRateUsBtn.setOnClickListener(v-> {
-
+            ratingApps();
         });
 
 
@@ -160,6 +159,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void starActivityMeme(){
         startActivity(new Intent(MainActivity.this, MemeActivity.class));
+    }
+
+    //-------------- Play store intent ---------------------------------------
+    private void moreApps(){
+
+        String developerName = "DhakaDevCraft";
+        Uri uri = Uri.parse("https://play.google.com/store/search?q=pub:" + developerName);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+
+    }
+
+
+    private void ratingApps(){
+        String packageName = BuildConfig.APPLICATION_ID;
+        Uri uri = Uri.parse("market://details?id=" + packageName + "&hl=en-US#reviews");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
 
