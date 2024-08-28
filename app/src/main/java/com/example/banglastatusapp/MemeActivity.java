@@ -48,8 +48,7 @@ public class MemeActivity extends AppCompatActivity {
     private ArrayList<String> memeList;
     private MemeAdapter memeAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
-    public static String URL = "https://appslabbd.buzz/test/0banglaMeme/api/meme_api.php";
-    private static String TOKEN = "Bearer QXV0aG9yaXphdGlvbiBoZWFkZXIgbm90IGZvdW5k";
+    public static String URL = "";
     private static final int REQUEST_WRITE_STORAGE = 112;
 
 
@@ -110,7 +109,7 @@ public class MemeActivity extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", TOKEN);
+                headers.put("Authorization", Config.getToken());
                 return headers;
             }
         };

@@ -19,6 +19,12 @@ import android.widget.FrameLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
@@ -119,12 +125,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         cvTodayMemeBtn.setOnClickListener(v-> {
-//            MemeActivity.URL = "";
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            String formattedDate = dateFormat.format(calendar.getTime());
+            MemeActivity.URL = Config.getBaseUrl() + "?date=" + formattedDate;
+
             starActivityMeme();
         });
 
         cvPopularMemeBtn.setOnClickListener(v-> {
-//            MemeActivity.URL = "";
+            MemeActivity.URL = Config.getBaseUrl() + "?limit=100&sort=download&order=desc";
             starActivityMeme();
         });
 
@@ -134,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cvAllMemeBtn.setOnClickListener(v-> {
-//            MemeActivity.URL = "";
+            MemeActivity.URL = Config.getBaseUrl() + "?order=desc&sort=create_at";
             starActivityMeme();
         });
 
