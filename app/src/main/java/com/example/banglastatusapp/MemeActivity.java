@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -22,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar; // Use this
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -66,6 +69,27 @@ public class MemeActivity extends AppCompatActivity {
         memeAdapter = new MemeAdapter();
         memeRecyclerView.setAdapter(memeAdapter);
 
+        // Set up the toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Retrieve the title from the intent
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("TITLE");
+
+        if (title != null) {
+            getSupportActionBar().setTitle(title);
+        }
+
+
+        // Enable back button
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            toolbar.getNavigationIcon().setColorFilter(ContextCompat.getColor(this, android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+
+        }
+
         // Initial data fetch
         fetchMemes();
 
@@ -77,6 +101,8 @@ public class MemeActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void fetchMemes() {
         swipeRefreshLayout.setRefreshing(true);
@@ -217,6 +243,13 @@ public class MemeActivity extends AppCompatActivity {
         }
 
 
+    }
 
+
+    // Handle back button click
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

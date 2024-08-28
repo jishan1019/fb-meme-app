@@ -130,22 +130,22 @@ public class MainActivity extends AppCompatActivity {
             String formattedDate = dateFormat.format(calendar.getTime());
             MemeActivity.URL = Config.getBaseUrl() + "?date=" + formattedDate;
 
-            starActivityMeme();
+            starActivityMeme("Today Meme");
         });
 
         cvPopularMemeBtn.setOnClickListener(v-> {
             MemeActivity.URL = Config.getBaseUrl() + "?limit=100&sort=download&order=desc";
-            starActivityMeme();
+            starActivityMeme("Popular Meme");
         });
 
         cvViralMemeBtn.setOnClickListener(v-> {
 //            MemeActivity.URL = "";
-            starActivityMeme();
+            starActivityMeme("Viral Meme");
         });
 
         cvAllMemeBtn.setOnClickListener(v-> {
             MemeActivity.URL = Config.getBaseUrl() + "?order=desc&sort=create_at";
-            starActivityMeme();
+            starActivityMeme("All Meme");
         });
 
         cvFavouriteBtn.setOnClickListener(v-> {
@@ -167,8 +167,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void starActivityMeme(){
-        startActivity(new Intent(MainActivity.this, MemeActivity.class));
+    private void starActivityMeme(String title){
+        Intent intent = new Intent(MainActivity.this, MemeActivity.class);
+        intent.putExtra("TITLE", title);
+        startActivity(intent);
     }
 
     //-------------- Play store intent ---------------------------------------
